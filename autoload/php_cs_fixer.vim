@@ -7,11 +7,11 @@ let g:php_cs_fixer_path = get(g:, 'php_cs_fixer_path', '')
 let g:php_cs_fixer_php_path = get(g:, 'php_cs_fixer_php_path', 'php')
 
 if exists('g:php_cs_fixer_path') && g:php_cs_fixer_path != ""
-  let g:php_cs_fixer_command = g:php_cs_fixer_php_path.' '.g:php_cs_fixer_path.' fix'
+  let g:php_cs_fixer_command = g:php_cs_fixer_php_path.' '.g:php_cs_fixer_path.' fix --allow-risky'
   let g:php_cs_fixer_version_command = g:php_cs_fixer_php_path.' '.g:php_cs_fixer_path.' --version'
 else
   if executable('php-cs-fixer')
-    let g:php_cs_fixer_command = 'php-cs-fixer fix'
+    let g:php_cs_fixer_command = 'php-cs-fixer fix --allow-risky'
     let g:php_cs_fixer_version_command = 'php-cs-fixer --version'
   else
     echoerr('php-cs-fixer not found and g:php_cs_fixer_path not set')
